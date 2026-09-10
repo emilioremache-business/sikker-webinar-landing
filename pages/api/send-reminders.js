@@ -54,7 +54,7 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           filter: {
-            property: 'Estado',
+            property: 'Select',
             select: { equals: 'Registered' },
           },
         }),

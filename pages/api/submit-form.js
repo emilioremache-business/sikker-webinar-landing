@@ -45,18 +45,17 @@ export default async function handler(req, res) {
             title: [{ text: { content: nombre } }],
           },
           'Email': { email: email },
-          'Empresa': {
-            rich_text: [{ text: { content: empresa } }],
-          },
           'Cargo': {
-            rich_text: [{ text: { content: cargo } }],
+            rich_text: [{ text: { content: cargo + (empresa ? ' - ' + empresa : '') } }],
           },
-          'Sector': { select: { name: sector } },
-          '¿Usa MFA?': { select: { name: mfa } },
-          'Fecha de Registro': {
+          'Sector': {
+            multi_select: [{ name: sector }],
+          },
+          'Usa MFA (Autenticador Multifactor)': { select: { name: mfa } },
+          'Fecha de registro': {
             date: { start: new Date().toISOString().split('T')[0] },
           },
-          'Estado': { select: { name: 'Registered' } },
+          'Select': { select: { name: 'Registered' } },
         },
       }),
     });
@@ -71,7 +70,7 @@ export default async function handler(req, res) {
       try {
         const resend = new Resend(RESEND_API_KEY);
         await resend.emails.send({
-          from: 'Sikker Cybersecurity <webinar@sikker.com>',
+          from: 'Sikker Cybersecurity <webinar@sikkercsc.com>',
           to: email,
           subject: 'Confirmación de Registro - Webinar "Del Dato al Dinero"',
           html: buildConfirmationEmail({ nombre, teamsLink: WEBINAR_TEAMS_LINK }),
