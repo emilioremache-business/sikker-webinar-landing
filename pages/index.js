@@ -52,7 +52,6 @@ export default function Home() {
         mfa: 'No estoy seguro'
       });
 
-      // Reset mensaje después de 5 segundos
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       setError(err.message);
@@ -71,14 +70,52 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Imagen del webinar (banner principal) */}
+      <section style={styles.bannerSection}>
+        <img
+          src="/webinar-financiero.jpeg"
+          alt="Webinar Del Dato al Dinero - Sikker Cybersecurity"
+          style={styles.bannerImage}
+        />
+      </section>
+
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>De la Identidad al Apagón</h1>
-          <p style={styles.heroSubtitle}>Cómo 3 Semanas Destruyen un Banco</p>
+          <p style={styles.heroLabel}>WEBINAR</p>
+          <h1 style={styles.heroTitle}>Del Dato al Dinero</h1>
+          <p style={styles.heroSubtitle}>La economía clandestina detrás del fraude financiero</p>
           <p style={styles.heroDescription}>
-            Descubre cómo los atacantes acceden a tu empresa en secreto y cómo protegerte.
+            Dark Web, Deep Web, ingeniería social y accesos seguros: entendiendo cómo atacan hoy las organizaciones financieras.
           </p>
+
+          <div style={styles.eventDetails}>
+            <div style={styles.eventDetailItem}>
+              <span style={styles.eventDetailLabel}>📅 Fecha</span>
+              <span style={styles.eventDetailValue}>Martes 22 Sept 2026</span>
+            </div>
+            <div style={styles.eventDetailItem}>
+              <span style={styles.eventDetailLabel}>🕐 Hora</span>
+              <span style={styles.eventDetailValue}>10H00 Ecuador</span>
+            </div>
+            <div style={styles.eventDetailItem}>
+              <span style={styles.eventDetailLabel}>💻 Modalidad</span>
+              <span style={styles.eventDetailValue}>Virtual, desde donde estés</span>
+            </div>
+          </div>
+
+          <div style={styles.speakers}>
+            <div style={styles.speakerCard}>
+              <p style={styles.speakerName}>Emilio Remache</p>
+              <p style={styles.speakerRole}>Business Consultant</p>
+              <p style={styles.speakerTag}>MODERADOR</p>
+            </div>
+            <div style={styles.speakerCard}>
+              <p style={styles.speakerName}>Rubens Rodriguez</p>
+              <p style={styles.speakerRole}>Seguridad Ofensiva</p>
+              <p style={styles.speakerTag}>EXPOSITOR</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -101,7 +138,6 @@ export default function Home() {
           )}
 
           <form onSubmit={handleSubmit} style={styles.form}>
-            {/* Nombre */}
             <div style={styles.formGroup}>
               <label style={styles.label}>Nombre Completo *</label>
               <input
@@ -115,7 +151,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Email */}
             <div style={styles.formGroup}>
               <label style={styles.label}>Email Corporativo *</label>
               <input
@@ -129,7 +164,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Empresa */}
             <div style={styles.formGroup}>
               <label style={styles.label}>Empresa *</label>
               <input
@@ -143,7 +177,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Cargo */}
             <div style={styles.formGroup}>
               <label style={styles.label}>Cargo *</label>
               <input
@@ -157,7 +190,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Sector */}
             <div style={styles.formGroup}>
               <label style={styles.label}>Sector *</label>
               <select
@@ -174,7 +206,6 @@ export default function Home() {
               </select>
             </div>
 
-            {/* MFA */}
             <div style={styles.formGroup}>
               <label style={styles.label}>¿Tu empresa usa MFA (autenticación de doble factor)? *</label>
               <select
@@ -189,7 +220,6 @@ export default function Home() {
               </select>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -199,7 +229,7 @@ export default function Home() {
                 cursor: loading ? 'not-allowed' : 'pointer'
               }}
             >
-              {loading ? 'Registrando...' : 'REGISTRARME AL WEBINAR'}
+              {loading ? 'Registrando...' : 'REGÍSTRATE →'}
             </button>
           </form>
 
@@ -211,13 +241,13 @@ export default function Home() {
 
       {/* Footer */}
       <footer style={styles.footer}>
-        <p>© 2024 Sikker Cybersecurity Company. Todos los derechos reservados.</p>
+        <p>Juntos hacemos un mundo más seguro</p>
+        <p style={{ marginTop: '8px', opacity: 0.6 }}>© 2026 Sikker Cybersecurity Company. Todos los derechos reservados.</p>
       </footer>
     </div>
   );
 }
 
-// Estilos
 const styles = {
   container: {
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -258,10 +288,22 @@ const styles = {
     textTransform: 'uppercase',
     letterSpacing: '1px',
   },
+  bannerSection: {
+    width: '100%',
+    backgroundColor: '#000000',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  bannerImage: {
+    width: '100%',
+    maxWidth: '900px',
+    height: 'auto',
+    display: 'block',
+  },
   hero: {
     backgroundColor: '#0B1210',
     backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(75, 174, 178, 0.1) 0%, transparent 50%)',
-    padding: '80px 20px',
+    padding: '60px 20px',
     textAlign: 'center',
     borderBottom: '1px solid rgba(75, 174, 178, 0.2)',
   },
@@ -269,27 +311,94 @@ const styles = {
     maxWidth: '800px',
     margin: '0 auto',
   },
+  heroLabel: {
+    fontSize: '14px',
+    letterSpacing: '4px',
+    color: '#4BAEB2',
+    fontWeight: '600',
+    margin: '0 0 12px 0',
+  },
   heroTitle: {
-    fontSize: '48px',
+    fontSize: '44px',
     fontWeight: 'bold',
-    margin: '0 0 10px 0',
+    margin: '0 0 12px 0',
     color: '#FFFFFF',
     letterSpacing: '-1px',
+    lineHeight: '1.1',
   },
   heroSubtitle: {
-    fontSize: '24px',
+    fontSize: '20px',
     color: '#4BAEB2',
     margin: '0 0 20px 0',
     fontWeight: '500',
   },
   heroDescription: {
-    fontSize: '16px',
+    fontSize: '15px',
     color: '#9FB3AA',
-    margin: '0',
+    margin: '0 0 30px 0',
     lineHeight: '1.6',
+    maxWidth: '600px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  eventDetails: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '30px',
+    flexWrap: 'wrap',
+    marginBottom: '30px',
+    padding: '20px',
+    backgroundColor: '#101916',
+    borderRadius: '12px',
+    border: '1px solid rgba(75, 174, 178, 0.2)',
+  },
+  eventDetailItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+  },
+  eventDetailLabel: {
+    fontSize: '12px',
+    color: '#64796F',
+  },
+  eventDetailValue: {
+    fontSize: '14px',
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  speakers: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    flexWrap: 'wrap',
+  },
+  speakerCard: {
+    backgroundColor: '#101916',
+    border: '1px solid #4BAEB2',
+    borderRadius: '10px',
+    padding: '16px 24px',
+    minWidth: '180px',
+  },
+  speakerName: {
+    fontSize: '15px',
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    margin: '0 0 4px 0',
+  },
+  speakerRole: {
+    fontSize: '13px',
+    color: '#9FB3AA',
+    margin: '0 0 8px 0',
+  },
+  speakerTag: {
+    fontSize: '11px',
+    color: '#4BAEB2',
+    fontWeight: '700',
+    letterSpacing: '1px',
+    margin: 0,
   },
   formSection: {
-    padding: '80px 20px',
+    padding: '60px 20px 80px',
     backgroundColor: '#0B1210',
   },
   formContainer: {
@@ -388,9 +497,10 @@ const styles = {
   footer: {
     backgroundColor: '#000000',
     borderTop: '1px solid #4BAEB2',
-    padding: '20px',
+    padding: '24px 20px',
     textAlign: 'center',
-    fontSize: '12px',
-    color: '#64796F',
+    fontSize: '13px',
+    color: '#4BAEB2',
+    letterSpacing: '1px',
   },
 };
