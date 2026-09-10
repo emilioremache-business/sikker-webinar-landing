@@ -91,7 +91,7 @@ export default function Home() {
             </div>
             <div style={styles.eventDetailItem}>
               <span style={styles.eventDetailLabel}>💻 Modalidad</span>
-              <span style={styles.eventDetailValue}>Virtual, desde donde estés</span>
+              <span style={styles.eventDetailValue}>Microsoft Teamsés</span>
             </div>
           </div>
 
