@@ -65,7 +65,7 @@ export default function Home() {
       {/* Header */}
       <header style={styles.header}>
         <div style={styles.headerContent}>
-          <h2 style={styles.logo}>SIKKER</h2>
+          <img src="/logo-white.png" alt="Sikker" style={{height: '40px', marginRight: '10px'}} />
           <p style={styles.tagline}>Cybersecurity Company</p>
         </div>
       </header>
