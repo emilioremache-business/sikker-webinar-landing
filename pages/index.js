@@ -70,15 +70,6 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Imagen del webinar (banner principal) */}
-      <section style={styles.bannerSection}>
-        <img
-          src="/webinar-financiero.jpeg"
-          alt="Webinar Del Dato al Dinero - Sikker Cybersecurity"
-          style={styles.bannerImage}
-        />
-      </section>
-
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
@@ -288,22 +279,10 @@ const styles = {
     textTransform: 'uppercase',
     letterSpacing: '1px',
   },
-  bannerSection: {
-    width: '100%',
-    backgroundColor: '#000000',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  bannerImage: {
-    width: '100%',
-    maxWidth: '900px',
-    height: 'auto',
-    display: 'block',
-  },
   hero: {
     backgroundColor: '#0B1210',
     backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(75, 174, 178, 0.1) 0%, transparent 50%)',
-    padding: '60px 20px',
+    padding: '80px 20px',
     textAlign: 'center',
     borderBottom: '1px solid rgba(75, 174, 178, 0.2)',
   },
@@ -319,7 +298,7 @@ const styles = {
     margin: '0 0 12px 0',
   },
   heroTitle: {
-    fontSize: '44px',
+    fontSize: '48px',
     fontWeight: 'bold',
     margin: '0 0 12px 0',
     color: '#FFFFFF',
@@ -327,15 +306,15 @@ const styles = {
     lineHeight: '1.1',
   },
   heroSubtitle: {
-    fontSize: '20px',
+    fontSize: '24px',
     color: '#4BAEB2',
     margin: '0 0 20px 0',
     fontWeight: '500',
   },
   heroDescription: {
-    fontSize: '15px',
+    fontSize: '16px',
     color: '#9FB3AA',
-    margin: '0 0 30px 0',
+    margin: '0 0 40px 0',
     lineHeight: '1.6',
     maxWidth: '600px',
     marginLeft: 'auto',
@@ -346,7 +325,7 @@ const styles = {
     justifyContent: 'center',
     gap: '30px',
     flexWrap: 'wrap',
-    marginBottom: '30px',
+    marginBottom: '40px',
     padding: '20px',
     backgroundColor: '#101916',
     borderRadius: '12px',
@@ -398,7 +377,7 @@ const styles = {
     margin: 0,
   },
   formSection: {
-    padding: '60px 20px 80px',
+    padding: '80px 20px',
     backgroundColor: '#0B1210',
   },
   formContainer: {
